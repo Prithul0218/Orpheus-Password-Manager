@@ -1,10 +1,6 @@
 #include "AESLib.h"
 #include <EEPROM.h>
 
-/*
-    12345678
-    2bO
-*/
 uint8_t key[] = {1, 13, 2, 14, 4, 5, 0, 7, 8, 9, 5, 12, 15, 2, 0, 1};
 char data[17];
 
@@ -22,7 +18,7 @@ void loop() {
     newPassword = Serial.readString();
       Serial.println(newPassword);
     if (newPassword.length() < 17) {
-      Serial.println(newPassword.length());
+      Serial.println("Password must be less than 16 characters.");
       break;
     } else {
       Serial.println("Try Again");
@@ -43,11 +39,6 @@ void loop() {
     Serial.println(data);
     Serial.println();
     Serial.println();
-    Serial.println("Add more? (Y)");
-    //    while (Serial.available() == 0);
-    //    if (Serial.readString() != 'Y' || Serial.readString() != 'y') {
-    //      while (1);
-    //    }
   } else {
     Serial.println("Try again.");
   }
